@@ -1,0 +1,30 @@
+<div class="header">
+  <h1>Lista de Productos a la venta</h1>
+</div>
+
+<div class="table-container">
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>NOMBRE</th>
+        <th>DESCRIPCIÓN</th>
+        <th class="center-content">UNIDADES</th>
+        <th>PRECIO</th>
+        <th>ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td class="center-content">{{ product.stock }}</td>
+        <td><strong>{{ product.price }}$</strong></td>
+        <td>
+          <button (click)="editar(product)" class="buy-button">COMPRAR</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

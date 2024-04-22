@@ -1,0 +1,30 @@
+<h2 class="mb-5">Mis Ordenes</h2>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Direccion de envio: </th>
+      <th>Es envio?: </th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      @for (order of orders; track order.id) {
+        <tr>
+          <td>{{order.name}}</td>
+          <td>{{order.shippingAddress}}</td>
+          <td>{{order.delivery}}</td>
+          <td class="text-end">
+            <div class="btn-group ">
+              <button class="btn btn-primary" [routerLink]="[order.id, 'edit']">Editar</button>
+              <button class="btn btn-danger" (click)="deleteStore(order)">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      }
+  </tbody>
+
+</table>

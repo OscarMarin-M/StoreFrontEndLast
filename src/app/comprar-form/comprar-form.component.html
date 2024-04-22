@@ -1,0 +1,59 @@
+<div class="carta">
+  <link rel="stylesheet" href="comprar-form.component.css">
+  <div class="row">
+    <div class="col-md-6 each_side right_side">
+      <h1 class="titulo">{{ datos.name }}</h1>
+      <div class="product-description">
+        <p>{{ datos.description }}</p>
+        <p class="item-stock">
+          Disponibles
+          <span class="highlight-text">{{ datos.stock }}</span> unidades
+        </p>
+      </div>
+      <br/>
+
+      <h3 class="pd-select-option__headline">Precio Actual:</h3>
+      <h2 class="precio">{{ datos.price }}$</h2>
+
+    </div>
+
+    <div class="col-md-6 each_side">
+      <div class="add_to_cart">
+        <div class="quantity">
+          <div class="qty_inc_dec">
+            <input
+              type="text"
+              name="quantity"
+              id="quantity"
+              [value]="cantidad"
+              class="form-control input-number quantity-input add__to_cart_class"
+              title="Cantidad"
+              step="1"
+              min="1"
+              max=""
+              size="4"
+              pattern="[0-9]*"
+              inputmode="numeric"
+              disabled
+            />
+            <i class="ctrl-quantity increment" (click)="reducir()">-</i>
+            <i class="ctrl-quantity decrement" (click)="aumentar()">+</i>
+          </div>
+        </div>
+        <div class="btn-contain">
+          <input
+            type="button"
+            id="submit__add_to_cart"
+            value="Añadir al carrito"
+            class="btn-sho"
+            data-family="8092"
+            (click)="guardar()"
+          />
+          <button mat-button mat-dialog-close class="cancel-button">
+            CANCELAR
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

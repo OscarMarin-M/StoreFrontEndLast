@@ -1,0 +1,59 @@
+<h2 class="mb -5">
+  @if (product) {
+  Editar
+  }@else {
+  Nueva
+  }
+  PRODUCTO
+
+</h2>
+<div class="row row-cols-3 justify-content-center">
+  @if (form) {
+  <form [formGroup]="form" (ngSubmit)="save()">
+
+    <div class="mb-3">
+      <label for="name">Nombre: </label>
+      <input type="text" id="name" placeholder="Nombre" class="form-control" formControlName="name">
+    </div>
+
+    <div class="mb-3">
+      <label for="name">Descripcion </label>
+      <input type="text" id="description" placeholder="description" class="form-control" formControlName="description">
+    </div>
+
+    <div class="mb-3">
+      <label for="name">Cantidad disponible: </label>
+      <input type="text" id="stock" placeholder="stock" class="form-control" formControlName="stock">
+    </div>
+
+    <div class="mb-3">
+      <label for="name">Precio/u: </label>
+      <input type="text" id="price" placeholder="price" class="form-control" formControlName="price">
+    </div>
+
+    <div class="mb-3">
+      <label for="name">Active: </label>
+      <input type="checkbox" formControlName="isActive">
+    </div>
+
+    <select formControlName="categoryId" name="food">
+      @for (food of categories; track food) {
+        <option [value]="food.id">{{food.name}}</option>
+      }
+    </select>
+
+    <div class="text-end">
+
+      <button type="button" class="btn btn-light" routerLink="/products">Cancelar</button>
+      <button class="btn btn-primary ms-2">
+        @if (product) {
+        Actualizar
+        }@else {
+        Crear
+        } PRODUCTO</button>
+    </div>
+
+
+  </form>
+  }
+</div>

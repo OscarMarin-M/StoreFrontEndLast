@@ -1,0 +1,44 @@
+.carta {
+  text-align: center;
+  background-color: burlywood;
+  /* Centrar el contenido dentro de la carta */
+}
+
+.product-description p {
+  font-style: italic; /* Estilo de fuente en la descripción del producto */
+}
+
+.item-stock {
+  font-weight: bold; /* Estilo de fuente en el stock del producto */
+}
+
+.precio {
+  color: green; /* Color del precio */
+}
+
+.quantity {
+  margin-bottom: 20px; /* Espaciado inferior para la sección de cantidad */
+}
+
+.qty_inc_dec {
+  display: flex; /* Para alinear los controles de cantidad */
+  align-items: center;
+}
+
+.quantity-input {
+  width: 50px; /* Ancho del input de cantidad */
+  text-align: center; /* Centrar el texto dentro del input */
+}
+
+.ctrl-quantity {
+  cursor: pointer; /* Cambia el cursor a pointer */
+  padding: 0 5px; /* Espaciado dentro de los controles de cantidad */
+}
+
+.btn-contain {
+  margin-top: 20px; /* Espaciado superior para el contenedor de botones */
+}
+
+.cancel-button {
+  margin-left: 10px; /* Espaciado izquierdo para el botón de cancelar */
+}
