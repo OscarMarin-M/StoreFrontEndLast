@@ -1,0 +1,38 @@
+<h2 class="mb -5">
+  @if (category) {
+  Editar
+  }@else {
+  Nuevo
+  }
+  Contacto
+
+</h2>
+<div class="row row-cols-3 justify-content-center">
+  @if (form) {
+  <form [formGroup]="form" (ngSubmit)="save()">
+
+    <div class="mb-3">
+      <label for="name">Nombre: </label>
+      <input type="text" id="name" placeholder="Nombre" class="form-control" formControlName="name">
+    </div>
+
+    <div class="mb-3">
+      <label for="name">Descripcion: </label>
+      <input type="text" id="name" placeholder="Nombre" class="form-control" formControlName="description">
+    </div>
+
+    <div class="text-end">
+
+      <button type="button" class="btn btn-light" routerLink="/categories">Cancelar</button>
+      <button class="btn btn-primary ms-2">
+        @if (category) {
+        Actualizar
+        }@else {
+        Crear
+        } contacto</button>
+    </div>
+
+
+  </form>
+  }
+</div>

@@ -1,0 +1,41 @@
+<h2 class="mb-5">Mis tiendas</h2>
+
+<div class="text-end">
+<button class="btn btn-primary" routerLink ="new">
+  Nueva tienda
+</button>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Direccion: </th>
+      <th>Ciudad: </th>
+      <th>Horas de apertura:</th>
+      <th>Creado por: </th>
+      <th>Creado en: </th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      @for (store of stores; track store.id) {
+        <tr>
+          <td>{{store.name}}</td>
+          <td>{{store.address}}</td>
+          <td>{{store.city}}</td>
+          <td>{{store.openingHours}}</td>
+          <td>{{store.createdBy}}</td>
+          <td>{{store.createdAt | date:'dd/MM/yyyy hh:mm a'  }}</td>
+          <td class="text-end">
+            <div class="btn-group ">
+              <button class="btn btn-primary" [routerLink]="[store.id, 'edit']">Editar</button>
+              <button class="btn btn-danger" (click)="deleteStore(store)">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      }
+  </tbody>
+
+</table>

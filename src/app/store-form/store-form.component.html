@@ -1,0 +1,48 @@
+<h2 class="mb -5">
+  @if (store) {
+  Editar
+  }@else {
+  Nueva
+  }
+  TIENDA
+
+</h2>
+<div class="row row-cols-3 justify-content-center">
+  @if (form) {
+  <form [formGroup]="form" (ngSubmit)="save()">
+
+    <div class="mb-3">
+      <label for="name">Nombre: </label>
+      <input type="text" id="name" placeholder="Nombre" class="form-control" formControlName="name">
+    </div>
+
+    <div class="mb-3">
+      <label for="name">Direccion: </label>
+      <input type="text" id="address" placeholder="Direccion" class="form-control" formControlName="address">
+    </div>
+
+    <div class="mb-3">
+      <label for="name">Ciudad: </label>
+      <input type="text" id="city" placeholder="Ciudad" class="form-control" formControlName="city">
+    </div>
+
+    <div class="mb-3">
+      <label for="name">Horas de Apertura: </label>
+      <input type="text" id="openingHours" placeholder="Horas de Apertura" class="form-control" formControlName="openingHours">
+    </div>
+
+    <div class="text-end">
+
+      <button type="button" class="btn btn-light" routerLink="/stores">Cancelar</button>
+      <button class="btn btn-primary ms-2">
+        @if (store) {
+        Actualizar
+        }@else {
+        Crear
+        } TIENDA</button>
+    </div>
+
+
+  </form>
+  }
+</div>
