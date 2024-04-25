@@ -1,0 +1,43 @@
+.carrito {
+    display: flex;
+  }
+  
+  .productos {
+    flex: 1; /* Ocupa el 80% del espacio disponible */
+    
+  }
+  
+  .total {
+    flex: 0 0 30%; /* Ocupa el 20% del espacio disponible, sin crecer ni encoger */
+    padding: 8px;
+  }
+  
+  .center-content {
+    text-align: center;
+  }
+
+  .full-width-list {
+    width: 100%; /* Ocupa todo el ancho disponible */
+  }
+  
+  .item-details {
+    display: flex;
+    justify-content: space-between; /* Alinea los elementos a los extremos */
+  }
+  
+  .item-name {
+    flex: 1; /* El nombre ocupa todo el espacio disponible */
+  }
+  
+  .item-price {
+    margin-left: 10px; /* Ajusta el margen izquierdo para separar el precio del nombre */
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+
+  .card-pading {
+    padding: 8px;
+  }
+  

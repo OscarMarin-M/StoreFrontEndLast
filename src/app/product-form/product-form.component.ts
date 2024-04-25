@@ -28,9 +28,10 @@ export default class ProductFormComponent implements OnInit{
   form?: FormGroup;
   product?: Product;
   categories: Category[] = [];
+  category?: Category;
 
   getAllCategories() {
-    this.categoryService.list().subscribe((response: any) => {
+    this.categoryService.list().subscribe((response: any[]) => {
       this.categories = response;
     });
   }
@@ -45,8 +46,9 @@ export default class ProductFormComponent implements OnInit{
           description: [product.description, [Validators.required]],
           stock: [product.stock, [Validators.required]],
           price: [product.price, [Validators.required]],
-          isActive: [product.isActive, [Validators.required]],
-          categoryId: [product.categoryId, [Validators.required]]
+          active: [product.isActive, [Validators.required]],
+          category: [product.category.id, [Validators.required]],
+          categoryId: [product.category.id, [Validators.required]]
         })
       })
     }
@@ -56,7 +58,8 @@ export default class ProductFormComponent implements OnInit{
         description: ['', [Validators.required]],
         stock: ['', [Validators.required]],
         price: ['', [Validators.required]],
-        isActive: ['', [Validators.required]],
+        active: ['', [Validators.required]],
+        category: ['', [Validators.required]],
         categoryId: ['', [Validators.required]]
       })
     }

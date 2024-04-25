@@ -1,0 +1,113 @@
+<div class="carrito">
+  <div class="productos">
+    <table mat-table [dataSource]="carrito" class="mat-elevation-z0">
+      <ng-container matColumnDef="#">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon color="primary">shopping_cart</mat-icon>
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>PRODUCTO</th>
+        <td mat-cell *matCellDef="let element">
+          <strong>{{ element.name }}</strong
+          ><br />
+          {{ element.description }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>COSTO</th>
+        <td mat-cell *matCellDef="let element">
+          <strong>{{ element.price }}<span>$</span></strong>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="stock">
+        <th mat-header-cell *matHeaderCellDef>CANTIDAD</th>
+        <td mat-cell *matCellDef="let element" class="center-content">
+          {{ element.stock }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="subtotal">
+        <th mat-header-cell *matHeaderCellDef>SUBTOTAL</th>
+        <td mat-cell *matCellDef="let element">
+          <strong
+            >{{ roundToTwoDecimals(element.price * element.stock)
+            }}<span>$</span></strong
+          >
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>ACCIONES</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            matTooltip="Eliminar "
+            matTooltipClass="tooltip-red"
+            class=""
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="eliminar(element)"
+          >
+            <mat-icon color="warn">delete_forever</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="total">
+    <mat-card class="card-pading">
+      <mat-card-header>
+        <mat-card-title>Resumen de compra</mat-card-title>
+        <mat-card-subtitle>
+          Seleccione la tienda de compra:
+          <br />
+          <br />
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Seleccione una tienda</mat-label>
+            <mat-select (selectionChange)="onCategorySelected($event)">
+              <mat-option *ngFor="let store of stores" [value]="store.id">
+                {{ store.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br />
+          <mat-list>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              <div class="item-details">
+                <span class="item-name"><h3>Total</h3></span>
+                <span class="item-price"
+                  ><h3>{{ roundToTwoDecimals(total) }}$</h3></span
+                >
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
+          <br />
+
+          Necesita el envio de sus productos a una direccion especifica?
+
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Ingrese una direccion de envio</mat-label>
+            <textarea matInput [(ngModel)]="shippingAddress"></textarea>
+          </mat-form-field>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions align="end">
+        <button mat-flat-button color="warn" (click)="realizarPedido()">
+          REALIZAR PEDIDO
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

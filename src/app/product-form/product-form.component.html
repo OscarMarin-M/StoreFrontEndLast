@@ -33,10 +33,11 @@
 
     <div class="mb-3">
       <label for="name">Active: </label>
-      <input type="checkbox" formControlName="isActive">
+      <input type="checkbox" formControlName="active">
     </div>
 
-    <select formControlName="categoryId" name="food">
+  <label for="name">categoria: </label>
+    <select formControlName="category" formControlName="categoryId" name="food">
       @for (food of categories; track food) {
         <option [value]="food.id">{{food.name}}</option>
       }

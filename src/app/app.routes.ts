@@ -96,7 +96,18 @@ export const routes: Routes = [
   loadComponent: ()=> import ('./comprar-form/comprar-form.component')
 },
 
-//compras
+//carrito
+{
+  path: 'carrito/sale',
+  loadComponent: ()=> import ('./carrito/carrito.component')
+},
+
+//mostrar detalles
+{
+  path: 'order/:id/details',
+  loadComponent: ()=> import ('./mostrardetalles/mostrardetalles.component')
+},
+
 
 
 

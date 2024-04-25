@@ -1,0 +1,9 @@
+<h2 mat-dialog-title class="dialog-title">Se registro su pedido</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Su código de pedido es:</p>
+  <strong>{{data.campos.id}}</strong>
+  <p>¡Gracias por su compra!</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" (click)="viewMessage()" class="accept-button">ACEPTAR Y CONTINUAR</button>
+</mat-dialog-actions>

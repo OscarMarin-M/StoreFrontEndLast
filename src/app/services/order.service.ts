@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Order } from '../interface/order.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +26,14 @@ get(id: string){
   return this.http.get<Order>(`http://localhost:8080/order/${id}`)
 }
 //lo que parentesis RECIBE un contact que no tiene defina una estrucutura de momento por eso : any
-create(order: Order){
-  return this.http.post<Order>('http://localhost:8080/order', order)
+create(order: any){
+  return this.http.post<any>('http://localhost:8080/order', order)
 }
 
 update(id:string, order: Order){
   return this.http.put<Order>(`http://localhost:8080/order/${id}`, order)
 }
+
 
 delete(id: string){
   return this.http.delete<void>(`http://localhost:8080/order/${id}`, {responseType:'text' as 'json'})

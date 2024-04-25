@@ -1,3 +1,4 @@
+import { Detailorder } from "./detailorder.interface";
 import { Store } from "./store.interface";
 
 export interface Order {
@@ -7,9 +8,6 @@ export interface Order {
   shippingAddress: string;
   delivery:        boolean;
   isDeleted:       boolean;
-  createdAt:       Date;
-  updatedAt:       Date;
-  createdBy:       string;
-  updatedBy:       string;
-  store: string
+  store: Store
+  detailsOrders: Detailorder[];
 }

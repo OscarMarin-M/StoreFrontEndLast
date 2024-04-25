@@ -1,0 +1,32 @@
+<h2 class="mb-5">DETALLES DE LA ORDER:</h2>
+<h3 class="mb-5">{{order?.id}}</h3>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th> PRODUCTO:</th>
+      <th> PRECIO DEL PRODUCTO:</th>
+      <th> CANTIDAD: </th>
+      <th> SUBTOTAL: </th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      @for (detailsorder of detailsorder; track detailsorder.productId) {
+        <tr>
+          <td>{{detailsorder.product?.name}}</td>
+          <td>{{detailsorder.product?.price}}</td>
+          <td>{{detailsorder.quantity}}</td>
+          @if (detailsorder.product) {
+          <td>{{ (detailsorder.quantity * detailsorder.product.price) }}</td>
+          }
+          <td class="text-end">
+            <div class="btn-group ">
+            </div>
+          </td>
+        </tr>
+      }
+  </tbody>
+
+</table>

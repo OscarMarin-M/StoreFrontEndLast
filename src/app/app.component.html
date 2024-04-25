@@ -2,6 +2,15 @@
   <div style="max-width: 800px; margin: 0 auto;">
     <h1 style="margin: 0;">Stores sites</h1>
   </div>
+
+
+  <button mat-icon-button routerLink="/carrito/sale" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon matBadge={{getCounter()}} matBadgeColor="warn">add_shopping_cart</mat-icon>
+      <!-- Include text description of the icon's meaning for screen-readers -->
+      <span class="cdk-visually-hidden">
+        Example with a home icon with overlaid badge showing the number 15
+      </span>
+  </button>
 </div>
 <div style="background-color: #ddd; padding: 10px;">
   <div style="max-width: 800px; margin: 0 auto;">

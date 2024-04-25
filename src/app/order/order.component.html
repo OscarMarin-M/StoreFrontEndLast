@@ -19,6 +19,7 @@
           <td>{{order.delivery}}</td>
           <td class="text-end">
             <div class="btn-group ">
+              <button class="btn btn-primary" [routerLink]="[order.id, 'details']">VER DETALLES</button>
               <button class="btn btn-primary" [routerLink]="[order.id, 'edit']">Editar</button>
               <button class="btn btn-danger" (click)="deleteStore(order)">Eliminar</button>
             </div>
